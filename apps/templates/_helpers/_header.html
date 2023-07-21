@@ -1,0 +1,22 @@
+<header>
+    <div>Logo</div>
+
+
+    <ul>
+        <li>
+            <a href="{% url 'base:home_page' %}">
+                Home
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'first_example:greetings' name=name|default:"Alex" age=age|default:12 %}">
+                Greetings
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'first_example:generate_humans' %}">
+                Generate humans
+            </a>
+        </li>
+    </ul>
+</header>
