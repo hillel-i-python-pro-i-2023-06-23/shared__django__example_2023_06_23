@@ -1,3 +1,4 @@
+from django.core.exceptions import ValidationError
 from django.db import models
 
 
@@ -30,5 +31,15 @@ class Animal(models.Model):
 
     __repr__ = __str__
 
+    def clean(self):
+        super().clean()
+
+        if self.name.lower() == "bad":
+            raise ValidationError(f"Bad name. Current name: {self.name}")
+
+        self.name = self.name.capitalize()
+
+        return
+
     class Meta:
-        ordering = ["modified_at", "name"]
+        ordering = ["-modified_at", "name"]

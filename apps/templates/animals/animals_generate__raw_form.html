@@ -1,0 +1,17 @@
+{% extends "_helpers/_base.html" %}
+
+{% block content %}
+    <h1>Animals generating</h1>
+
+    <form method="POST" style="margin-bottom: 1em;">
+        {% csrf_token %}
+        <label>
+            <span>Amount</span>
+            <input type="number" name="amount" value="3"/>
+        </label>
+
+        <button type="submit">Generate</button>
+    </form>
+
+    {% include "animals/_animal_list_base.html" with animals_list=animals_list %}
+{% endblock %}

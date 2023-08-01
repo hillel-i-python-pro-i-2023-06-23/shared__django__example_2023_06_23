@@ -1,0 +1,41 @@
+<div>
+    <a href="{% url 'animals:animals_create' %}">
+        <button>Create</button>
+    </a>
+    <a href="{% url 'animals:animals_generate' %}">
+        <button>Generate new animals</button>
+    </a>
+    <a href="{% url 'animals:animals_delete' %}">
+        <button>Delete animals</button>
+    </a>
+</div>
+
+<ol>
+    {% for animal in animals_list %}
+        <li>
+            <div style="display: flex; flex-flow: row;">
+                <div style="margin: .2em;">
+                    <span>{{ animal.pk }}</span>
+                    <span> - </span>
+                    <span>{{ animal.name }}</span>
+                    <span> - </span>
+                    <span>{{ animal.age }}</span>
+                    <span> - </span>
+                    <span>{{ animal.modified_at }}</span>
+                </div>
+                <div style="margin: .2em;">
+                    <a href="{% url 'animals:animals_update' animal.pk %}">
+                        <button>Update</button>
+                    </a>
+                    <a href="{% url 'animals:animals_delete' animal.pk %}">
+                        <button>Delete</button>
+                    </a>
+                    <a href="{% url 'animals:animals_special_edit' animal.pk %}">
+                        <button>Special</button>
+                    </a>
+                </div>
+            </div>
+            </li>
+        {% endfor %}
+    </ol>
+
