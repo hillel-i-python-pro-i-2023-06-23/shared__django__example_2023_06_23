@@ -2,17 +2,6 @@
 
 {% block content %}
     <h1>Animals</h1>
-    <ol>
-        {% for animal in object_list %}
-            <li>
-                <span>{{ animal.pk }}</span>
-                <span> - </span>
-                <span>{{ animal.name }}</span>
-                <span> - </span>
-                <span>{{ animal.age }}</span>
-                <span> - </span>
-                <span>{{ animal.modified_at }}</span>
-            </li>
-        {% endfor %}
-    </ol>
+
+    {% include "animals/_animal_list_base.html" with animals_list=object_list %}
 {% endblock %}

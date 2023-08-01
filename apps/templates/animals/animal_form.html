@@ -1,0 +1,25 @@
+{% extends "_helpers/_base.html" %}
+
+{% block content %}
+    <h1>
+        {% if is_update %}
+            Update
+        {% else %}
+            Create
+        {% endif %}
+        animal
+    </h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit">
+            {% if is_update %}
+                Update
+            {% else %}
+                Create
+            {% endif %}
+        </button>
+    </form>
+{% endblock %}
