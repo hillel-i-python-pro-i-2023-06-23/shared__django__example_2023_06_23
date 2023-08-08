@@ -1,6 +1,8 @@
 from django.core.exceptions import ValidationError
 from django.db import models
 
+from .kind import Kind
+
 
 class Animal(models.Model):
     name = models.CharField(max_length=100)
@@ -24,6 +26,26 @@ class Animal(models.Model):
         auto_now=True,
         blank=False,
         null=False,
+    )
+
+    state = models.CharField(
+        max_length=100,
+        choices=(
+            ("good", "Good"),
+            ("bad", "Bad"),
+        ),
+        default="good",
+    )
+
+    kind = models.ForeignKey(
+        Kind,
+        on_delete=models.CASCADE,
+        related_name="animals",
+    )
+
+    colors = models.ManyToManyField(
+        "Color",
+        related_name="animals",
     )
 
     def __str__(self) -> str:
