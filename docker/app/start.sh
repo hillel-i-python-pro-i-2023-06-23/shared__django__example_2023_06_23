@@ -12,8 +12,16 @@ set -o nounset
 set -o xtrace
 # [bash_init]-[END]
 
+# [init]-[BEGIN]
 # Apply database migrations.
 make migrate
+
+# Create default superuser.
+# TODO: Implement this.
+
+# Initialize data for apps.
+make init-apps-data
+# [init]-[END]
 
 # Run application.
 python manage.py runserver 0.0.0.0:8000

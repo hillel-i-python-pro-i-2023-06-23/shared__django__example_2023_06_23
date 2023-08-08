@@ -72,3 +72,28 @@ migrations:
 # Migrate
 migrate:
 	@python manage.py migrate
+
+
+.PHONY: init-dev-i-create-superuser
+# Create superuser
+init-dev-i-create-superuser:
+	@DJANGO_SUPERUSER_PASSWORD=admin123 python manage.py createsuperuser --user admin --email admin@gmail.com --no-input
+
+
+
+.PHONY: generate_animals
+# Generate animals
+generate_animals:
+	@python manage.py generate_animals --amount 100
+
+
+.PHONY: init_animals_data
+# Init animals data
+init_animals_data:
+	@python manage.py init_animals_data
+
+
+.PHONY: init-apps-data
+# Init apps data
+init-apps-data:
+	@make init_animals_data
