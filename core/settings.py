@@ -47,6 +47,7 @@ LOCAL_APPS = [
     "apps.users",
     "apps.first_example",
     "apps.animals",
+    "apps.travels",
 ]
 
 THIRD_PARTY_APPS = []
