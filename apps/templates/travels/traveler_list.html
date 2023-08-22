@@ -1,0 +1,35 @@
+{% extends "_helpers/_base.html" %}
+
+{% block content %}
+    <h1>Travelers</h1>
+
+    <div>
+        <label for="country-select">Filter by country:</label>
+        <select id="country-select">
+            <option value="">Select a country</option>
+            {% for country in countries %}
+                <option value="{{ country.id }}">{{ country.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <ul>
+        {% for traveler in object_list %}
+            <li>
+                <div>
+                    <p>{{ traveler.name }}</p>
+                    <p>
+                        <span>
+                            Visited countries ({{ traveler.visited_countries.count }}):
+                        </span>
+                    </p>
+                    <p>
+                        {% for country in traveler.visited_countries.all %}
+                            <span style="margin: .2em;">{{ country.name }}</span>
+                        {% endfor %}
+                    </p>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

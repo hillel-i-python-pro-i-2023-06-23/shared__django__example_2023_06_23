@@ -96,4 +96,6 @@ init_animals_data:
 .PHONY: init-apps-data
 # Init apps data
 init-apps-data:
-	@make init_animals_data
+	@make init_animals_data && \
+	python manage.py init_travels_data && \
+	echo "Done"

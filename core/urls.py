@@ -22,4 +22,5 @@ urlpatterns = [
     path("", include("apps.base.urls")),
     path("first-example/", include("apps.first_example.urls")),
     path("animals/", include("apps.animals.urls")),
+    path("travels/", include("apps.travels.urls")),
 ]
