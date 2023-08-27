@@ -1,7 +1,11 @@
+UID := $(shell id -u)
+export UID
+
 .PHONY: d-homework-i-run
 # Make all actions needed for run homework from zero.
 d-homework-i-run:
-	@bash ./scripts/d-homework-i-run.sh
+	@make init-configs &&\
+	make d-run
 
 
 .PHONY: d-homework-i-purge
