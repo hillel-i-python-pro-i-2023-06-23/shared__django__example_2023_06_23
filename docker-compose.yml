@@ -4,3 +4,7 @@ version: '3.9'
 services:
   app:
     build: .
+    #    environment:
+    #      - DJANGO__DEBUG=True
+    env_file:
+      - .env
