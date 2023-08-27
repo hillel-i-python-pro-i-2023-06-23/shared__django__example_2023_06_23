@@ -1,7 +1,11 @@
+UID := $(shell id -u)
+export UID
+
 .PHONY: d-homework-i-run
 # Make all actions needed for run homework from zero.
 d-homework-i-run:
-	@bash ./scripts/d-homework-i-run.sh
+	@make init-configs &&\
+	make d-run
 
 
 .PHONY: d-homework-i-purge
@@ -39,7 +43,7 @@ d-purge:
 # Init environment for development
 init-dev:
 	@pip install --upgrade pip && \
-	pip install --requirement requirements.txt && \
+	pip install --requirement requirements/local.txt && \
 	pre-commit install
 
 .PHONY: homework-i-run

@@ -1,0 +1,7 @@
+# Base requirements. These are the only ones that are required to run the app.
+
+# Core for web.
+django==4.2.4
+
+# For name generation.
+faker==19.3.1
