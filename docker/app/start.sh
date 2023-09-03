@@ -17,7 +17,7 @@ set -o xtrace
 make migrate
 
 # Create default superuser.
-# TODO: Implement this.
+make init-dev-i-create-superuser || echo "Superuser already exists."
 
 # Initialize data for apps.
 make init-apps-data

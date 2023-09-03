@@ -27,6 +27,15 @@ d-run:
 	@COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 \
 		docker compose up --build
 
+
+.PHONY: d-run-i-local-dev
+# Just run
+d-run-i-local-dev:
+	@COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 \
+		docker-compose \
+			up --build postgres
+
+
 .PHONY: d-stop
 # Stop services
 d-stop:
