@@ -25,22 +25,19 @@ init-configs:
 # Just run
 d-run:
 	@COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 \
-		docker compose up --build
+		COMPOSE_PROFILES=full_dev \
+		docker compose \
+			up --build
 
 
 .PHONY: d-run-i-local-dev
 # Just run
 d-run-i-local-dev:
 	@COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 \
-		docker-compose \
-			up --build postgres
+		COMPOSE_PROFILES=local_dev \
+		docker compose \
+			up --build
 
-
-.PHONY: d-stop
-# Stop services
-d-stop:
-	@COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 \
-		docker compose down
 
 .PHONY: d-purge
 # Purge all data related with services
