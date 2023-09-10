@@ -11,8 +11,7 @@ def generate_and_save_animals(amount: int) -> None:
 
     logger.info(f"Current amount of animals before: {queryset.count()}")
 
-    for animal in generate_animals(amount=amount):
-        animal.is_auto_generated = True
-        animal.save()
+    for animal in generate_animals(amount=amount, is_auto_generated=True):
+        logger.info(f"{animal=}")
 
     logger.info(f"Current amount of animals after: {queryset.count()}")
