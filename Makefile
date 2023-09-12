@@ -38,6 +38,14 @@ d-run-i-local-dev:
 		docker compose \
 			up --build
 
+#.PHONY: d-run-i-pgadmin
+## Run pgadmin
+#d-run-i-pgadmin:
+#	@COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 \
+#		COMPOSE_PROFILES=pgadmin \
+#		docker compose \
+#			up --build
+
 
 .PHONY: d-purge
 # Purge all data related with services
