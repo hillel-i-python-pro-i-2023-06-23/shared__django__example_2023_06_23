@@ -157,11 +157,12 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+CELERY_BROKER_URL = env.str("CELERY_BROKER_URL")
 
 CELERY_BEAT_SCHEDULE = {
     "test_task": {
         "task": "apps.celery_example.tasks.example_2.example_2",
         "schedule": crontab(minute="*/1"),  # every minute
-        # 'schedule': crontab(hour='*/21'),  # every minute
+        # 'schedule': crontab(hour='*/21'),  # every 21 hour
     },
 }
